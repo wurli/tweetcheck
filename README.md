@@ -12,7 +12,13 @@ tweets <- c(
   "This tweet links {rtweet}: https://docs.ropensci.org/rtweet/",
   strrep("This tweet is way too long! ", 20)
 )
-tweet_info(tweets)
+```
+
+## Get all info for each tweet
+
+``` r
+# Only two used because it's a bit lengthy
+tweet_info(tweets[1:2])
 ```
 
     ## [[1]]
@@ -59,52 +65,8 @@ tweet_info(tweets)
     ## 
     ## [[2]]$displayRangeEnd
     ## [1] 41
-    ## 
-    ## 
-    ## [[3]]
-    ## [[3]]$weightedLength
-    ## [1] 50
-    ## 
-    ## [[3]]$valid
-    ## [1] TRUE
-    ## 
-    ## [[3]]$permillage
-    ## [1] 178
-    ## 
-    ## [[3]]$validRangeStart
-    ## [1] 0
-    ## 
-    ## [[3]]$validRangeEnd
-    ## [1] 59
-    ## 
-    ## [[3]]$displayRangeStart
-    ## [1] 0
-    ## 
-    ## [[3]]$displayRangeEnd
-    ## [1] 59
-    ## 
-    ## 
-    ## [[4]]
-    ## [[4]]$weightedLength
-    ## [1] 560
-    ## 
-    ## [[4]]$valid
-    ## [1] FALSE
-    ## 
-    ## [[4]]$permillage
-    ## [1] 2000
-    ## 
-    ## [[4]]$validRangeStart
-    ## [1] 0
-    ## 
-    ## [[4]]$validRangeEnd
-    ## [1] 279
-    ## 
-    ## [[4]]$displayRangeStart
-    ## [1] 0
-    ## 
-    ## [[4]]$displayRangeEnd
-    ## [1] 559
+
+## Get tweet permillage
 
 ``` r
 tweet_permillage(tweets)
@@ -112,17 +74,31 @@ tweet_permillage(tweets)
 
     ## [1]  107  150  178 2000
 
+## Get tweet length
+
 ``` r
 tweet_length(tweets)
 ```
 
     ## [1]  30  42  50 560
 
+This is not the same as the number of chars!
+
+``` r
+tweet_length(tweets) == nchar(tweets)
+```
+
+    ## [1]  TRUE  TRUE FALSE  TRUE
+
+## Check for tweet validity
+
 ``` r
 tweet_is_valid(tweets)
 ```
 
     ## [1]  TRUE  TRUE  TRUE FALSE
+
+## Get mentions
 
 ``` r
 tweet_get_mentions(tweets)
@@ -139,6 +115,8 @@ tweet_get_mentions(tweets)
     ## 
     ## [[4]]
     ## character(0)
+
+## Perform autolinking
 
 ``` r
 tweet_autolink(tweets)

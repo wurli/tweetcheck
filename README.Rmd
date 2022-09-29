@@ -17,10 +17,40 @@ tweets <- c(
   "This tweet links {rtweet}: https://docs.ropensci.org/rtweet/",
   strrep("This tweet is way too long! ", 20)
 )
-tweet_info(tweets)
+```
+
+## Get all info for each tweet
+```{r}
+# Only two used because it's a bit lengthy
+tweet_info(tweets[1:2])
+```
+
+## Get tweet permillage
+```{r}
 tweet_permillage(tweets)
+```
+
+## Get tweet length
+```{r}
 tweet_length(tweets)
+```
+
+This is not the same as the number of chars!
+```{r}
+tweet_length(tweets) == nchar(tweets)
+```
+
+## Check for tweet validity
+```{r}
 tweet_is_valid(tweets)
+```
+
+## Get mentions
+```{r}
 tweet_get_mentions(tweets)
+```
+
+## Perform autolinking
+```{r}
 tweet_autolink(tweets)
 ```
