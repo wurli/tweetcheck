@@ -1,0 +1,26 @@
+---
+output: github_document
+---
+
+```{r setup, include=FALSE}
+devtools::load_all(".")
+```
+
+# Twitter-text demo
+This repo gives a basic example of how [twitter-text](https://github.com/twitter/twitter-text)
+could be wrapped by an R package using {V8}.
+
+```{r}
+tweets <- c(
+  "This is a first tweet. Simple!",
+  "This tweet tags @hadleywickham and @_wurli",
+  "This tweet links {rtweet}: https://docs.ropensci.org/rtweet/",
+  strrep("This tweet is way too long! ", 20)
+)
+tweet_info(tweets)
+tweet_permillage(tweets)
+tweet_length(tweets)
+tweet_is_valid(tweets)
+tweet_get_mentions(tweets)
+tweet_autolink(tweets)
+```
