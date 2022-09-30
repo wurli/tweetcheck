@@ -1,8 +1,19 @@
 
-#' Wrappers from the twitter-text library
-#'
-#' @param x A character vector of tweets
+
+#' Parse a tweet
 #' 
+#' This function can be used to produce all parse information for a tweet
+#'
+#' @param x A character vector of tweet
+#' 
+#' @return A dataframe with the following columns:
+#'   * `tweet`: The original tweet text
+#'   * `weighted_length`: The length of the tweet according to Twitter's 
+#'     parsing rules
+#'   * `is_valid`: Whether or not `tweet` is postable according to Twitter's
+#'     parsing rules
+#'   * `permillage`
+#'
 #' @export
 #'
 #' @examples
@@ -20,21 +31,32 @@
 #' tweet_get_mentions(tweets)
 #' tweet_autolink(tweets)
 tweet_info <- function(x) {
-  lapply(x, function(x) .ct$call("twttr.txt.parseTweet", x))
+  
+  out <- lapply(x, function(x) .ct$call("twttr.txt.parseTweet", x))
+  out <- do.call(rbind, out)
+  
+  colnames(out) <- c(
+    "weighted_length", "is_valid", "permillage", "valid_range_start",
+    "valid_range_end", "display_range_start", "display_range_end"
+  )
+  
+  cbind(
+    data.frame(tweet = x, stringsAsFactors = FALSE),
+    out
+  )
+  
 }
 
 #' @rdname tweet_info
 #' @export
 tweet_permillage <- function(x) {
-  out <- tweet_info(x)
-  vapply(out, function(x) x$permillage, integer(1))
+  tweet_info(x)$permillage
 }
 
 #' @rdname tweet_info
 #' @export
-tweet_length <- function(x) {
-  out <- tweet_info(x)
-  vapply(out, function(x) x$weightedLength, integer(1))
+tweet_weighted_length <- function(x) {
+  tweet_info(x)$weighted_length
 }
 
 #' @rdname tweet_info
@@ -42,6 +64,26 @@ tweet_length <- function(x) {
 tweet_is_valid <- function(x) {
   out <- tweet_info(x)
   vapply(out, function(x) x$valid, logical(1))
+}
+
+#' @export
+tweet_valid_range_start <- function(x) {
+  tweet_info(x)$valid_range_start
+}
+
+#' @export
+tweet_valid_range_end <- function(x) {
+  tweet_info(x)$valid_range_end
+}
+
+#' @export
+tweet_display_range_start <- function(x) {
+  tweet_info(x)$tweet_display_range_start
+}
+
+#' @export
+tweet_display_range_end <- function(x) {
+  tweet_info(x)$tweet_display_range_end
 }
 
 #' @rdname tweet_info

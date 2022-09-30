@@ -1,12 +1,17 @@
-Package: twitter-text-demo
-Title: What the Package Does (One Line, Title Case)
+Package: tweetcheck
+Title: Parse, validate and extract information from tweet text using code from
+  Twitter's twitter-text repository
 Version: 0.0.0.9000
-Authors@R: 
-    person("First", "Last", , "first.last@example.com", role = c("aut", "cre"),
-           comment = c(ORCID = "YOUR-ORCID-ID"))
-Description: What the package does (one paragraph).
-License: `use_mit_license()`, `use_gpl3_license()` or friends to pick a
-    license
+Authors@R: c(
+    person("Jacob", "Scott", email = "jscott2718@gmail.com", role = c("aut", "cre"))
+    person("Twitter, Inc", role = "aut")
+    person("Other contributors", role = "aut")
+  )
+Description: An R wrapper for the twitter-text JavaScript library, which
+   is responsible for determining the quantity of characters in a Tweet and 
+   identifying and linking any URL, @username, #hashtag, or $cashtags which
+   may be present.
+License: Apache License (>= 2)
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.2.1

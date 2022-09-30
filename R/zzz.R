@@ -4,7 +4,7 @@
   
   .ct <<- V8::v8()
   
-  dep <- system.file("extdata/twitter-text.min.js", package = "twitter-text-demo")
+  dep <- system.file("extdata/twitter-text.min.js", package = "tweetcheck")
   .ct$source(dep)
   
 }
