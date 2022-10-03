@@ -1,4 +1,9 @@
 
+<!-- badges: start -->
+
+[![R-CMD-check](https://github.com/wurli/tweetcheck/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/wurli/tweetcheck/actions/workflows/R-CMD-check.yaml)
+<!-- badges: end -->
+
 # tweetcheck
 
 {tweetcheck} is a simple R wrapper for the
@@ -6,6 +11,16 @@
 library which is made available by Twitter under the Apache 2.0 license.
 This library allows easy parsing of tweet text as well as autolinking
 and extraction of mentions.
+
+## Installation
+
+``` r
+# Install from CRAN using:
+install.packages("tweetcheck")
+
+# Install from GitHub using:
+remotes::install_github("wurli/tweetcheck")
+```
 
 # Demo
 
