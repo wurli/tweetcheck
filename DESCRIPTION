@@ -3,8 +3,8 @@ Title: Parse, validate and extract information from tweet text using code from
   Twitter's twitter-text repository
 Version: 0.0.0.9000
 Authors@R: c(
-    person("Jacob", "Scott", email = "jscott2718@gmail.com", role = c("aut", "cre"))
-    person("Twitter, Inc", role = "aut")
+    person("Jacob", "Scott", email = "jscott2718@gmail.com", role = c("aut", "cre")),
+    person("Twitter, Inc", role = "aut"),
     person("Other contributors", role = "aut")
   )
 Description: An R wrapper for the twitter-text JavaScript library, which
@@ -16,4 +16,5 @@ Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.2.1
 Imports: 
+    tibble,
     V8

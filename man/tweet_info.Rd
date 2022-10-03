@@ -3,42 +3,92 @@
 \name{tweet_info}
 \alias{tweet_info}
 \alias{tweet_permillage}
-\alias{tweet_length}
+\alias{tweet_weighted_length}
 \alias{tweet_is_valid}
-\alias{tweet_get_mentions}
-\alias{tweet_autolink}
-\title{Wrappers from the twitter-text library}
+\alias{tweet_valid_range_start}
+\alias{tweet_valid_range_end}
+\alias{tweet_display_range_start}
+\alias{tweet_display_range_end}
+\title{Parse a tweet}
 \usage{
 tweet_info(x)
 
 tweet_permillage(x)
 
-tweet_length(x)
+tweet_weighted_length(x)
 
 tweet_is_valid(x)
 
-tweet_get_mentions(x)
+tweet_valid_range_start(x)
 
-tweet_autolink(x)
+tweet_valid_range_end(x)
+
+tweet_display_range_start(x)
+
+tweet_display_range_end(x)
 }
 \arguments{
-\item{x}{A character vector of tweets}
+\item{x}{A character vector of tweet}
+}
+\value{
+\code{tweet_info()} returns a dataframe with \code{length(x)} rows. The other
+functions return integer/numeric vectors with \code{length(x)} elements.
 }
 \description{
-Wrappers from the twitter-text library
+These functions can be used to validate tweets before posting.
+}
+\details{
+\itemize{
+\item \code{tweet_info()}: \verb{<tbl_df>} with columns for all the
+following fields, as well as a column \code{tweet} giving the original text.
+Note that this function is called internally by all of the following,
+so it may be more efficient to store this result and extract columns as
+needed.
+\item \code{tweet_permillage()}: \verb{<numeric>} indicating the number of characters
+used as a proportion of the maximum number of characters allowed. I.e.
+this will be > 0 and <= 1 for valid tweets.
+\item \code{tweet_weighted_length()}: \verb{<integer>} indicating the 'length' of the tweet
+according to Twitter's parsing rules. The maximum allowed length is 280
+characters.
+\item \code{tweet_is_valid()}: \verb{<logical>} indicating whether or not the tweet is
+valid according to Twitter's parsing rules
+\item \code{tweet_valid_range_start()}/\code{tweet_valid_range_end()}: \verb{<integer>}
+indicating the index of the first/last characters of the valid range of a
+tweet
+\item \code{tweet_display_range_start()}/\code{tweet_display_range_end()}: \verb{<integer>}
+indicating the index of the first/last characters of the display range of
+a tweet
+}
 }
 \examples{
 tweets <- c(
   "This is a first tweet. Simple!",
   "This tweet tags @hadleywickham and @_wurli",
   "This tweet links {rtweet}: https://docs.ropensci.org/rtweet/",
+  "Emojis take up two characters 😄😄😄",
   strrep("This tweet is way too long! ", 20)
 )
 
+# Dataframe summarising all of the following
 tweet_info(tweets)
+
+# Ratio of used characterss to allowed characters
 tweet_permillage(tweets)
-tweet_length(tweets)
+
+# Length of the tweet (according to Twitter's rules):
+tweet_weighted_length(tweets)
+
+# Logical indicating tweet validity:
 tweet_is_valid(tweets)
-tweet_get_mentions(tweets)
-tweet_autolink(tweets)
+
+# Valid range of a tweet
+tweet_valid_range_start(tweets)
+tweet_valid_range_end(tweets)
+
+# Display range of a tweet
+tweet_display_range_start(tweets)
+tweet_display_range_end(tweets)
+}
+\seealso{
+\code{\link[=tweet_get_mentions]{tweet_get_mentions()}} and \code{\link[=tweet_autolink]{tweet_autolink()}}
 }
