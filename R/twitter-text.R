@@ -43,7 +43,7 @@
 #'   "This is a first tweet. Simple!",
 #'   "This tweet tags @hadleywickham and @_wurli",
 #'   "This tweet links {rtweet}: https://docs.ropensci.org/rtweet/",
-#'   "Emojis take up two characters 😄😄😄",
+#'   "Emojis take up two characters \U1F600\U1F600\U1F600",
 #'   strrep("This tweet is way too long! ", 20)
 #' )
 #' 

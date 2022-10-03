@@ -1,9 +1,8 @@
 Package: tweetcheck
-Title: Parse, validate and extract information from tweet text using code from
-  Twitter's twitter-text repository
-Version: 0.0.0.9000
+Title: Parse and Validate Tweet Text
+Version: 0.1.0
 Authors@R: c(
-    person("Jacob", "Scott", email = "jake12358@gmail.com", role = c("aut", "cre")),
+    person("Jacob", "Scott", , "jake12358@gmail.com", role = c("aut", "cre")),
     person("Twitter, Inc", role = "aut"),
     person("Other contributors", role = "aut")
   )
