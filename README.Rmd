@@ -2,6 +2,11 @@
 output: github_document
 ---
 
+```{r setup}
+#| include: FALSE
+knitr::opts_chunk$set(comment = "#>")
+```
+
 # tweetcheck
 
 {tweetcheck} is a simple R wrapper for the [twitter-text](https://github.com/twitter/twitter-text) JavaScript library which
