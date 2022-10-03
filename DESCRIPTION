@@ -2,14 +2,14 @@ Package: tweetcheck
 Title: Parse and Validate Tweet Text
 Version: 0.1.0
 Authors@R: c(
-    person("Jacob", "Scott", , "jake12358@gmail.com", role = c("aut", "cre")),
+    person("Jacob", "Scott", , "jscott2718@gmail.com", role = c("aut", "cre")),
     person("Twitter, Inc", role = "aut"),
     person("Other contributors", role = "aut")
   )
 Description: An R wrapper for the twitter-text JavaScript library, which
    is responsible for determining the quantity of characters in a Tweet and 
-   identifying and linking any URL, @username, #hashtag, or $cashtags which
-   may be present.
+   identifying and linking any URLs or special tags such as mentions or
+   hashtags which may be present.
 License: Apache License (>= 2)
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
