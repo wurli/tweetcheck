@@ -3,7 +3,7 @@ Title: Parse, validate and extract information from tweet text using code from
   Twitter's twitter-text repository
 Version: 0.0.0.9000
 Authors@R: c(
-    person("Jacob", "Scott", email = "jscott2718@gmail.com", role = c("aut", "cre")),
+    person("Jacob", "Scott", email = "jake12358@gmail.com", role = c("aut", "cre")),
     person("Twitter, Inc", role = "aut"),
     person("Other contributors", role = "aut")
   )

@@ -54,6 +54,12 @@ tweet_info(tweets)
     #> #   ⁴​valid_range_start, ⁵​valid_range_end, ⁶​display_range_start,
     #> #   ⁷​display_range_end
 
+`tweet_permillage()`, `tweet_weighted_length()`, `tweet_is_valid()`,
+`tweet_valid_range_start()`, `tweet_valid_range_end()`,
+`tweet_display_range_start()`, and `tweet_display_range_end()` are
+convenience functions which can be used to extract any of the above
+columns individually.
+
 ## Extract mentions
 
 ``` r
