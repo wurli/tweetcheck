@@ -6,7 +6,7 @@ Authors@R: c(
     person("Twitter, Inc", role = "aut"),
     person("Other contributors", role = "aut")
   )
-Description: An R wrapper for the twitter-text JavaScript library, which
+Description: An interface to 'twitter-text', a 'JavaScript' library which
    is responsible for determining the length/validity of a tweet and 
    identifying/linking any URLs or special tags (e.g. mentions or
    hashtags) which may be present.
